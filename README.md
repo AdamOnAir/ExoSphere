@@ -53,6 +53,7 @@ Schéma de connexion
         MISO → GP16
         SCK → GP18
 
+```
 Raspberry Pi Pico H
 ┌─────────────┐
 │      VSYS───┼───VCC (3.3V) (Tous les modules)
@@ -67,3 +68,4 @@ Raspberry Pi Pico H
 │      GP16───┼───MISO (Module SD card)
 │      GP18───┼───SCK (Module SD card)
 └─────────────┘
+```
