@@ -53,6 +53,7 @@ Schéma de connexion
         MISO → GP16
         SCK → GP18
 
+Schéma de connexion (Vue d'ensemble)
 ```
 Raspberry Pi Pico H
 ┌─────────────┐
