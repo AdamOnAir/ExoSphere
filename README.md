@@ -53,4 +53,17 @@ Schéma de connexion
         MISO → GP16
         SCK → GP18
 
-
+Raspberry Pi Pico H
+┌─────────────┐
+│      VSYS───┼───VCC (3.3V) (Tous les modules)
+│      GND ───┼───GND (Tous les modules)
+│      GP9 ───┼───SCL (BMP280, MPU6050, DS3231)
+│      GP8 ───┼───SDA (BMP280, MPU6050, DS3231)
+│      GP4 ───┼───Data (DHT22 avec pull-up 10kΩ)
+│      GP1 ───┼───RX (GPS)
+│      GP0 ───┼───TX (GPS)
+│      GP17───┼───CS (Module SD card)
+│      GP19───┼───MOSI (Module SD card)
+│      GP16───┼───MISO (Module SD card)
+│      GP18───┼───SCK (Module SD card)
+└─────────────┘
