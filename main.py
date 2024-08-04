@@ -2,14 +2,27 @@ import machine
 import time
 import busio
 import adafruit_bmp280
-import adafruit_dht
 import adafruit_gps
 import adafruit_mpu6050
 import sdcard
 import os
 import adafruit_ds3231
 
-# Configuration des pins et des objets (à adapter)
+# Fonction pour lire la température interne du RP2040
+def read_internal_temperature():
+    # Lire la température interne en degrés Celsius
+    adc_temp = machine.ADC(4)  # Le capteur de température interne est connecté à ADC4
+    # Convertir la lecture ADC en température Celsius
+    # Note: La conversion exacte peut varier selon la spécification du RP2040
+    temperature_celsius = (adc_temp.read_u16() * 3.3 / 65535 - 0.5) * 100
+    return temperature_celsius
+
+while True:
+    temp = read_internal_temperature()
+    print(f"Temperature: {temp:.2f} C")
+    time.sleep(60)  # Lire toutes les 60 secondes
+
+# Pin Configuration
 i2c = busio.I2C(board.SCL, board.SDA)
 spi = busio.SPI(clock=machine.Pin(18), MOSI=machine.Pin(19), MISO=machine.Pin(16))
 cs = machine.Pin(17)
@@ -18,13 +31,21 @@ vfs = os.VFS(sd)
 os.mount(vfs, '/sd')
 
 bmp280 = adafruit_bmp280.Adafruit_BMP280_I2C(i2c)
-dht_device = adafruit_dht.DHT22(machine.Pin(4))
 gps = adafruit_gps.GPS(uart, debug=False)
 mpu6050 = adafruit_mpu6050.MPU6050(i2c)
 rtc = adafruit_ds3231.DS3231(i2c)
 
+def read_internal_temperature():
+    adc_temp = machine.ADC(4)  # ADC 4 pin
+    temperature_celsius = (adc_temp.read_u16() * 3.3 / 65535 - 0.5) * 100
+    return temperature_celsius
+
 while True:
-    # Lecture des données
+    
+    temp = read_internal_temperature()
+    print(f"Temperature: {temp:.2f} C")
+    time.sleep(60)  # Lire toutes les 60 secondes
+    
     try:
         temperature = bmp280.temperature
         humidity = dht_device.humidity
