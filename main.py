@@ -15,18 +15,18 @@ import sdcard
 
 while True:
     
-# Pin Configuration
-i2c = busio.I2C(board.SCL, board.SDA)
-spi = busio.SPI(clock=machine.Pin(18), MOSI=machine.Pin(19), MISO=machine.Pin(16))
-cs = machine.Pin(17)
-sd = sdcard.SDCard(spi, cs)
-vfs = os.VFS(sd)
-os.mount(vfs, '/sd')
-
-bmp280 = adafruit_bmp280.Adafruit_BMP280_I2C(i2c)
-gps = adafruit_gps.GPS(uart, debug=False)
-mpu6050 = adafruit_mpu6050.MPU6050(i2c)
-rtc = adafruit_ds3231.DS3231(i2c)
+    # Pin Configuration
+    i2c = busio.I2C(board.SCL, board.SDA)
+    spi = busio.SPI(clock=machine.Pin(18), MOSI=machine.Pin(19), MISO=machine.Pin(16))
+    cs = machine.Pin(17)
+    sd = sdcard.SDCard(spi, cs)
+    vfs = os.VFS(sd)
+    os.mount(vfs, '/sd')
+    
+    bmp280 = adafruit_bmp280.Adafruit_BMP280_I2C(i2c)
+    gps = adafruit_gps.GPS(uart, debug=False)
+    mpu6050 = adafruit_mpu6050.MPU6050(i2c)
+    rtc = adafruit_ds3231.DS3231(i2c)
 
     try:
         temperature = bmp280.temperature
