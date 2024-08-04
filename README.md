@@ -1,6 +1,8 @@
 # ExoSphere
 
-##List of Components
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+
+## List of Components
 
 - Raspberry Pi Pico H (or any other microcontroller)
 - BMP280 Sensor
