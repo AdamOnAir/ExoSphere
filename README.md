@@ -1,5 +1,6 @@
 # ExoSphere
-List of Components
+
+##List of Components
 
 - Raspberry Pi Pico H (or any other microcontroller)
 - BMP280 Sensor
@@ -10,7 +11,7 @@ List of Components
 - SD Card Module
 - Connection Wires (jumper wires)
 
-Connection Diagram
+## Connection Diagram
 
 - Raspberry Pi Pico H:
   - Power: VBUS or VSYS (3.3V)
@@ -53,7 +54,7 @@ Connection Diagram
   - MISO → GP16
   - SCK → GP18
 
-Connection Diagram (Overview)
+## Connection Diagram (Overview)
 ```text
 Raspberry Pi Pico H
 ┌─────────────┐
