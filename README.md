@@ -1,72 +1,72 @@
 # ExoSphere
-Liste des composants
+List of Components
 
-    Raspberry Pi Pico H (ou tout autre microcontrôleur)
-    Capteur BMP280
-    Capteur DHT22
-    Module GPS
-    Capteur MPU6050
-    Module RTC DS3231
-    Module SD card
-    Fils de connexion (jumper wires)
+- Raspberry Pi Pico H (or any other microcontroller)
+- BMP280 Sensor
+- DHT22 Sensor
+- GPS Module
+- MPU6050 Sensor
+- DS3231 RTC Module
+- SD Card Module
+- Connection Wires (jumper wires)
 
-Schéma de connexion
+Connection Diagram
 
-    Raspberry Pi Pico H :
-        Alimentation : VBUS ou VSYS (3.3V)
-        Masse : GND
+- Raspberry Pi Pico H:
+  - Power: VBUS or VSYS (3.3V)
+  - Ground: GND
 
-    BMP280 (I2C) :
-        VCC → 3.3V
-        GND → GND
-        SCL → SCL (GP9)
-        SDA → SDA (GP8)
+- BMP280 (I2C):
+  - VCC → 3.3V
+  - GND → GND
+  - SCL → SCL (GP9)
+  - SDA → SDA (GP8)
 
-    DHT22 (Digital) :
-        VCC → 3.3V
-        GND → GND
-        Data → GP4 (avec une résistance pull-up de 10kΩ entre Data et VCC)
+- DHT22 (Digital):
+  - VCC → 3.3V
+  - GND → GND
+  - Data → GP4 (with a 10kΩ pull-up resistor between Data and VCC)
 
-    Module GPS (UART) :
-        VCC → 3.3V
-        GND → GND
-        RX → TX (GP1)
-        TX → RX (GP0)
+- GPS Module (UART):
+  - VCC → 3.3V
+  - GND → GND
+  - RX → TX (GP1)
+  - TX → RX (GP0)
 
-    MPU6050 (I2C) :
-        VCC → 3.3V
-        GND → GND
-        SCL → SCL (GP9)
-        SDA → SDA (GP8)
+- MPU6050 (I2C):
+  - VCC → 3.3V
+  - GND → GND
+  - SCL → SCL (GP9)
+  - SDA → SDA (GP8)
 
-    RTC DS3231 (I2C) :
-        VCC → 3.3V
-        GND → GND
-        SCL → SCL (GP9)
-        SDA → SDA (GP8)
+- RTC DS3231 (I2C):
+  - VCC → 3.3V
+  - GND → GND
+  - SCL → SCL (GP9)
+  - SDA → SDA (GP8)
 
-    Module SD card (SPI) :
-        VCC → 3.3V
-        GND → GND
-        CS → GP17
-        MOSI → GP19
-        MISO → GP16
-        SCK → GP18
+- SD Card Module (SPI):
+  - VCC → 3.3V
+  - GND → GND
+  - CS → GP17
+  - MOSI → GP19
+  - MISO → GP16
+  - SCK → GP18
 
-Schéma de connexion (Vue d'ensemble)
-```
+Connection Diagram (Overview)
+```text
 Raspberry Pi Pico H
 ┌─────────────┐
-│      VSYS───┼───VCC (3.3V) (Tous les modules)
-│      GND ───┼───GND (Tous les modules)
+│      VSYS───┼───VCC (3.3V) (All modules)
+│      GND ───┼───GND (All modules)
 │      GP9 ───┼───SCL (BMP280, MPU6050, DS3231)
 │      GP8 ───┼───SDA (BMP280, MPU6050, DS3231)
-│      GP4 ───┼───Data (DHT22 avec pull-up 10kΩ)
+│      GP4 ───┼───Data (DHT22 with 10kΩ pull-up)
 │      GP1 ───┼───RX (GPS)
 │      GP0 ───┼───TX (GPS)
-│      GP17───┼───CS (Module SD card)
-│      GP19───┼───MOSI (Module SD card)
-│      GP16───┼───MISO (Module SD card)
-│      GP18───┼───SCK (Module SD card)
+│      GP17───┼───CS (SD Card Module)
+│      GP19───┼───MOSI (SD Card Module)
+│      GP16───┼───MISO (SD Card Module)
+│      GP18───┼───SCK (SD Card Module)
 └─────────────┘
 ```
